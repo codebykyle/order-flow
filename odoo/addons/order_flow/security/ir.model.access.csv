@@ -1,0 +1,17 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+order_flow_order_manager,order_flow.order_manager,model_order_flow_order,base.group_system,1,1,1,1
+order_flow_order_user,order_flow.order_user,model_order_flow_order,base.group_user,1,0,0,0
+order_flow_container_content_manager,order_flow.container_content_manager,model_order_flow_item_contents,base.group_system,1,1,1,1
+order_flow_container_content_user,order_flow.container_content_user,model_order_flow_item_contents,base.group_user,1,0,0,0
+order_flow_order_item_manager,order_flow.order_item_manager,model_order_flow_order_item,base.group_system,1,1,1,1
+order_flow_order_item_user,order_flow.order_item_user,model_order_flow_order_item,base.group_user,1,0,0,0
+order_flow_item_manager,order_flow.item_manager,model_order_flow_item,base.group_system,1,1,1,1
+order_flow_item_user,order_flow.item_user,model_order_flow_item,base.group_user,1,0,0,0
+order_flow_item_meta_manager,order_flow.item_meta_manager,model_order_flow_item_meta,base.group_system,1,1,1,1
+order_flow_item_meta_user,order_flow.item_meta_user,model_order_flow_item_meta,base.group_user,1,0,0,0
+order_flow_item_tag_manager,order_flow.item_tag_manager,model_order_flow_item_tag,base.group_system,1,1,1,1
+order_flow_item_tag_user,order_flow.item_Tag_user,model_order_flow_item_tag,base.group_user,1,0,0,0
+order_flow_shipping_method_manager,order_flow.shipping_method_manager,model_order_flow_shipping_method,base.group_system,1,1,1,1
+order_flow_shipping_method_user,order_flow.shipping_method_user,model_order_flow_shipping_method,base.group_user,1,0,0,0
+order_flow_item_adjustment_manager,order_flow.item_adjustment_manager,model_order_flow_item_adjustment,base.group_system,1,1,1,1
+order_flow_item_adjustment_user,order_flow.item_adjustment_user,model_order_flow_item_adjustment,base.group_user,1,0,0,0

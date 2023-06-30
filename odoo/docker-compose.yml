@@ -1,0 +1,31 @@
+version: '3.1'
+services:
+  web:
+    image: odoo:16.0
+    depends_on:
+      - mydb
+    volumes:
+      - cbk-web-data:/var/lib/odoo
+      - ./odoo/odoo/addons:/usr/lib/python3/dist-packages/odoo/addons
+      - ./addons:/mnt/extra-addons
+    ports:
+      - "8069:8069"
+    environment:
+    - HOST=mydb
+    - USER=odoo
+    - PASSWORD=myodoo
+  mydb:
+    image: postgres:15
+    volumes:
+      - cbk-db-data:/var/lib/postgresql/data/pgdata
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=myodoo
+      - POSTGRES_USER=odoo
+      - PGDATA=/tmp
+
+volumes:
+  cbk-db-data:
+    driver: local
+  cbk-web-data:
+    driver: local

@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="view_order_flow_item_adjustment_form" model="ir.ui.view">
+            <field name="name">order_flow.item_adjustment.form</field>
+            <field name="model">order_flow.item_adjustment</field>
+            <field name="arch" type="xml">
+                <form string="Content">
+                    <sheet>
+
+                        <field name="currency_id" invisible="1"/>
+
+                        <field name="adjustment_type" widget="radio" options="{'horizontal': True}"/>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name"
+                                       default_focus="1"
+                                       placeholder="Give this adjustment a name, eg: Given Away, Sold to James, etc"/>
+                            </h1>
+                        </div>
+
+                        <group name="container_details" col="12">
+                            <group colspan="8">
+                                <separator string="Adjustment Details"/>
+                                <field name="item_id"/>
+                                <field name="adjustment_date"/>
+                                <field name="partner_id"/>
+                            </group>
+                            <group colspan="4">
+                                <separator string="Adjustment Amount"/>
+                                <field name="quantity"/>
+
+
+                                <separator string="Transaction Details"/>
+
+                                <field name="amount_subtotal"
+                                       widget='monetary'
+                                       options="{'currency_field': 'currency_id'}"/>
+                                <field name="amount_discount"
+                                       widget='monetary'
+                                       options="{'currency_field': 'currency_id'}"/>
+                                <field name="amount_vat"
+                                       widget='monetary'
+                                       options="{'currency_field': 'currency_id'}"/>
+                                <field name="amount_tax"
+                                       widget='monetary'
+                                       options="{'currency_field': 'currency_id'}"/>
+                                <field name="amount_final_total"
+                                       widget='monetary'
+                                       options="{'currency_field': 'currency_id'}"/>
+
+                                <separator string="Shipping Details"/>
+                                <field name="amount_shipping"
+                                       widget='monetary'
+                                       options="{'currency_field': 'currency_id'}"/>
+
+
+                                <separator string="Adjustment Meta"/>
+                                <field name="integration_code"/>
+                            </group>
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="order_flow_item_adjustment_tree" model="ir.ui.view">
+            <field name="name">order_flow.item_adjustment.tree</field>
+            <field name="model">order_flow.item_adjustment</field>
+            <field name="arch" type="xml">
+                <tree string="Content" sample="1">
+                    <field name="name"/>
+                    <field name="item_id"/>
+
+                    <field name="amount_final_total"
+                           widget='monetary'
+                           options="{'currency_field': 'currency_id'}"/>
+                    <field name="amount_shipping"
+                           widget='monetary'
+                           options="{'currency_field': 'currency_id'}"/>
+
+                    <field name="quantity"/>
+                    <field name="adjustment_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="order_flow_item_adjustment_action" model="ir.actions.act_window">
+            <field name="name">Item Adjustment</field>
+            <field name="res_model">order_flow.item_adjustment</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="order_flow_item_adjustment_tree"/>
+        </record>
+    </data>
+</odoo>
