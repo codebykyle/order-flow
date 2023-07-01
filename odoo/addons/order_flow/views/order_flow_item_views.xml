@@ -5,6 +5,16 @@
             <field name="name">order_flow.item.form</field>
             <field name="model">order_flow.item</field>
             <field name="arch" type="xml">
+                <header>
+                    <button name="%(order_flow_label_request_bulk_action)d"
+                            string="Make Label"
+                            data-hotkey="l"
+                            title="Queue a label to be printed"
+                            type="action"
+                            context="{
+                                'default_item_id': active_id
+                            }" />
+                </header>
                 <form string="Order Flow Item">
                     <sheet>
                         <field name="item_type" widget="radio" options="{'horizontal': True}"/>
@@ -29,6 +39,7 @@
                                 <field name="name_vietnamese"/>
                                 <field name="description_vietnamese"/>
                             </group>
+
                             <group colspan="4">
                                 <separator string="Product Status"/>
                                 <field name="status"/>
@@ -54,6 +65,9 @@
                                 <field name="item_meta_ids"/>
                             </group>
                         </group>
+
+                        <separator string="Pending Label Requests"/>
+                        <field name="pending_label_request_ids" string="Pending Label Requests"/>
 
 
                         <separator string="Sub-Items"/>
@@ -111,7 +125,7 @@
 
 
         <record id="order_flow_item_kanban" model="ir.ui.view">
-            <field name="name">order_flow.item.tree</field>
+            <field name="name">order_flow.item.kanban</field>
             <field name="model">order_flow.item</field>
             <field name="arch" type="xml">
                 <kanban class="o_kanban_mobile"
@@ -154,6 +168,13 @@
             </field>
         </record>
 
+        <record id="order_flow_item_action" model="ir.actions.act_window">
+            <field name="name">Items</field>
+            <field name="res_model">order_flow.item</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="view_id" ref="order_flow_item_tree"/>
+        </record>
+
 
         <record id="order_flow_initial_sort" model="ir.actions.act_window">
             <field name="name">Initial Sort</field>
@@ -168,11 +189,6 @@
             <field name="view_id" ref="order_flow_item_kanban"/>
         </record>
 
-        <record id="order_flow_item_action" model="ir.actions.act_window">
-            <field name="name">Items</field>
-            <field name="res_model">order_flow.item</field>
-            <field name="view_mode">tree,form,kanban</field>
-            <field name="view_id" ref="order_flow_item_tree"/>
-        </record>
+
     </data>
 </odoo>

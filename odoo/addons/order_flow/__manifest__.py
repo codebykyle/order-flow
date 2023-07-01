@@ -6,10 +6,13 @@
     'summary': 'Orders and shipment tracking for third party companies such as Amazon and Shopee',
     'description': """Orders and shipment tracking for third party companies such as Amazon and Shopee""",
     'depends': [
-        'base',
-        'documents'
+        'base'
     ],
     'data': [
+        'wizard/create_label_request_views.xml',
+        'views/order_flow_label_request_views.xml',
+        'views/order_flow_shipping_method_views.xml',
+        'views/order_flow_shipping_label_type_views.xml',
         'views/order_flow_order_item_views.xml',
         'views/order_flow_item_content_views.xml',
         'views/order_flow_adjustment_views.xml',

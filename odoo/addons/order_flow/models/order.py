@@ -7,7 +7,6 @@ class OrderFlowOrder(models.Model):
     _order = 'delivery_date, id'
 
     _inherit = [
-        'documents.mixin'
     ]
 
     name = fields.Char(required=True)

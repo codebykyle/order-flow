@@ -6,7 +6,6 @@ class OrderFlowOrderItem(models.Model):
     _description = 'Order Item'
 
     _inherit = [
-        'documents.mixin'
     ]
 
     name = fields.Char(

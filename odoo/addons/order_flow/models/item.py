@@ -7,7 +7,6 @@ class OrderFlowItem(models.Model):
     _order = 'id'
 
     _inherit = [
-        'documents.mixin',
         'image.mixin'
     ]
 
@@ -16,6 +15,11 @@ class OrderFlowItem(models.Model):
 
     description = fields.Html(string="Description")
     description_vietnamese = fields.Html(string="Vietnamese Description")
+
+    label_type_id = fields.Many2one(
+        comodel_name='order_flow.label_type',
+        string='Label Type'
+    )
 
     item_type = fields.Selection([
         ('object', 'Object'),
@@ -44,6 +48,8 @@ class OrderFlowItem(models.Model):
         ('draft', 'Draft'),
         ('acknowledged', 'Acknowledged'),
         ('goes_in_container', 'Goes in Container'),
+        ('has_a_parent', 'Has a parent'),
+        ('label_queued', 'Queued for Label'),
         ('labeled', 'Labeled'),
         ('packing', 'Packing'),
         ('sealed', 'Sealed'),
@@ -60,6 +66,12 @@ class OrderFlowItem(models.Model):
     )
 
     asking_price = fields.Float(string="Asking Price")
+
+    pending_label_request_ids = fields.One2many(
+        comodel_name='order_flow.label_request',
+        inverse_name='item_id',
+        string='Pending Label Requests'
+    )
 
     sub_item_ids = fields.One2many(
         comodel_name='order_flow.item_contents',
@@ -96,6 +108,8 @@ class OrderFlowItem(models.Model):
         string='Tags'
     )
 
+
+
     @api.model
     def _group_expand_status(self, states, domain, order):
         field_set_context = self._context.get('field_set')
@@ -104,6 +118,7 @@ class OrderFlowItem(models.Model):
             return [
                 'draft',
                 'goes_in_container',
+                'has_a_parent',
                 'for_sale',
                 'sold',
                 'trashed',

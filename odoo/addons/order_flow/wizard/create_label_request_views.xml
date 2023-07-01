@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="order_flow_label_request_bulk_form" model="ir.ui.view">
+        <field name="name">order_flow.label_request.bulk_create.form</field>
+        <field name="model">order_flow.label_request.bulk_create</field>
+        <field name="arch" type="xml">
+            <form string="Make Label">
+                <group>
+                    <field name="item_id"/>
+                    <field name="quantity"/>
+                    <field name="label_type_id"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="order_flow_label_request_bulk_action" model="ir.actions.act_window">
+        <field name="name">Queue Labels</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">order_flow.label_request.bulk_create</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="order_flow_label_request_bulk_form"/>
+        <field name="target">new</field>
+    </record>
+</odoo>

@@ -11,3 +11,5 @@ from . import order
 from . import order_item
 
 from . import shipping_method
+from . import label_type
+from . import label_request

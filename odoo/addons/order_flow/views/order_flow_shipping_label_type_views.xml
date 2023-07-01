@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="view_order_flow_label_type_form" model="ir.ui.view">
+            <field name="name">order_flow.label_type.form</field>
+            <field name="model">order_flow.label_type</field>
+            <field name="arch" type="xml">
+                <form string="Content">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name"
+                                       default_focus="1"
+                                       placeholder="Give this label type a name, eg: A4 Sticker Paper"/>
+                            </h1>
+                        </div>
+
+                        <group>
+                            <field name="sheet_api_name"/>
+                            <field name="label_api_name"/>
+                        </group>
+
+                        <separator string="Attached Items"/>
+                        <field name="item_ids" string="Sub-Items"
+                               context="{
+                                    'default_shipping_method_id': active_id,
+                                    'form_view_ref': 'order_flow.view_order_flow_item_contents_form'
+                                }"/>
+
+
+                        <separator string="Pending Labels"/>
+                        <field name="pending_label_ids" string="Sub-Items"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="order_flow_label_type_tree" model="ir.ui.view">
+            <field name="name">order_flow.label_type.tree</field>
+            <field name="model">order_flow.label_type</field>
+            <field name="arch" type="xml">
+                <tree string="Content" sample="1">
+                    <field name="name"/>
+                    <field name="sheet_api_name"/>
+                    <field name="label_api_name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="order_flow_label_type_action" model="ir.actions.act_window">
+            <field name="name">Label Types</field>
+            <field name="res_model">order_flow.label_type</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="order_flow_label_type_tree"/>
+        </record>
+    </data>
+</odoo>
