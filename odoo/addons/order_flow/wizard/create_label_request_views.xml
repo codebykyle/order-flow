@@ -11,6 +11,17 @@
                     <field name="label_type_id"/>
                 </group>
             </form>
+            <footer>
+                <button string='Create Labels'
+                        name="create_label_request"
+                        type="object"
+                        class="btn-primary"
+                        data-hotkey="q"/>
+                <button string="Cancel"
+                        class="btn-secondary"
+                        special="cancel"
+                        data-hotkey="z"/>
+            </footer>
         </field>
     </record>
 

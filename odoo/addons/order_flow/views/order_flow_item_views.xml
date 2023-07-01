@@ -7,13 +7,13 @@
             <field name="arch" type="xml">
                 <header>
                     <button name="%(order_flow_label_request_bulk_action)d"
-                            string="Make Label"
+                            string="Make Labels"
                             data-hotkey="l"
                             title="Queue a label to be printed"
                             type="action"
                             context="{
                                 'default_item_id': active_id
-                            }" />
+                            }"/>
                 </header>
                 <form string="Order Flow Item">
                     <sheet>
@@ -50,6 +50,7 @@
 
                                 <separator string="Item Relationships"/>
                                 <field name="shipping_method_id"/>
+                                <field name="label_type_id" />
 
                                 <separator string="Item Dimensions"/>
                                 <field name="size_height"/>
@@ -67,7 +68,14 @@
                         </group>
 
                         <separator string="Pending Label Requests"/>
-                        <field name="pending_label_request_ids" string="Pending Label Requests"/>
+                        <field name="pending_label_request_ids"
+                               string="Pending Label Requests"
+                               context="{
+                                    'tree_view_ref': 'order_flow.order_flow_label_request_tree',
+                                    'default_item_id': active_id,
+                                    'default_label_type_id': label_type_id or False
+                                }"
+                        />
 
 
                         <separator string="Sub-Items"/>

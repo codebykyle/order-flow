@@ -19,6 +19,7 @@
         'views/order_flow_item_views.xml',
         'views/order_flow_order_views.xml',
         'views/res_partner_views.xml',
+        'data/label_type.xml',
         'security/ir.model.access.csv',
         'views/order_flow_menus.xml',
     ],

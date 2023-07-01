@@ -12,6 +12,8 @@ class OrderFlowLabelType(models.Model):
     sheet_api_name = fields.Char('Sheet API Name')
     label_api_name = fields.Char('Label API Name')
 
+    is_default = fields.Boolean(string='Is Default')
+
     item_ids = fields.One2many(
         comodel_name='order_flow.item',
         inverse_name='label_type_id',

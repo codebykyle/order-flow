@@ -45,7 +45,7 @@
     <menuitem id="menu_storage_kanban"
               name="Store Items"
               parent="menu_order_flow_moving"
-              action="order_flow_storage"
+              action="order_flow_label_request_list_report"
               sequence="10"/>
 
     <!-- Vendor menu-->

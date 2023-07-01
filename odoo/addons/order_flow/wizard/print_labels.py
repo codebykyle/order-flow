@@ -1,11 +1,9 @@
 from odoo import models, fields, api
 
 
-class CreateLabelRequests(models.TransientModel):
-    _name = 'order_flow.label_request.bulk_create'
-    _description = 'Create label requests for this product'
-
-    item_id = fields.Many2one('order_flow.item', string="Item", required=True)
+class PrintLabels(models.TransientModel):
+    _name = 'order_flow.label_request.print'
+    _description = 'Print a sheet of labels'
 
     label_type_id = fields.Many2one(
         comodel_name='order_flow.label_type',
