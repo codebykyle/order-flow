@@ -23,6 +23,28 @@
             </field>
         </record>
 
+        <record id="view_order_flow_item_contents_form_add_content" model="ir.ui.view">
+            <field name="name">order_flow.item_contents.form</field>
+            <field name="model">order_flow.item_contents</field>
+            <field name="arch" type="xml">
+                <form string="Content">
+                    <sheet>
+                        <group name="container_details" col="12">
+                            <group colspan="8">
+                                <field name="name" invisible="1"/>
+                                <field name="child_item_id"/>
+                                <field name="parent_item_id"/>
+                            </group>
+                            <group colspan="4">
+                                <field name="quantity"/>
+                            </group>
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
         <record id="order_flow_item_contents_tree" model="ir.ui.view">
             <field name="name">order_flow.item_contents.tree</field>
             <field name="model">order_flow.item_contents</field>
@@ -34,6 +56,26 @@
                     <field name="quantity"/>
                 </tree>
             </field>
+        </record>
+
+
+
+        <record id="order_flow_order_item_action_create_content" model="ir.actions.act_window">
+            <field name="name">Add Content</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">order_flow.item_contents</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_order_flow_item_contents_form_add_content"/>
+            <field name="target">new</field>
+        </record>
+
+        <record id="order_flow_order_item_action_add_box" model="ir.actions.act_window">
+            <field name="name">Add To Box</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">order_flow.item_contents</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_order_flow_item_contents_form"/>
+            <field name="target">new</field>
         </record>
 
         <record id="order_flow_item_contents_action" model="ir.actions.act_window">

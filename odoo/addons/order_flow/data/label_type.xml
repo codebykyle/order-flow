@@ -3,10 +3,14 @@
     <data noupdate="1">
         <record id="inventory_label" model="order_flow.label_type">
             <field name="name">A4 4x10 Inventory</field>
-            <field name="api_endpoint">http://localhost:3333/</field>
+            <field name="api_endpoint">http://host.docker.internal:3333/</field>
             <field name="sheet_api_name">a4_4x10</field>
             <field name="label_api_name">inventory</field>
             <field name="is_default">1</field>
         </record>
     </data>
+
+    <record id="base.VND" model="res.currency">
+        <field name="active" eval="True"/>
+    </record>
 </odoo>

@@ -36,17 +36,19 @@
               sequence="10"/>
 
     <!--Moving menu-->
+<!--    -->
     <menuitem id="menu_initial_sort"
               name="Initial Sort"
               parent="menu_order_flow_moving"
               action="order_flow_initial_sort"
-              sequence="10"/>
+              sequence="5"/>
+
 
     <menuitem id="menu_storage_kanban"
               name="Store Items"
               parent="menu_order_flow_moving"
               action="order_flow_label_request_list_report"
-              sequence="10"/>
+              sequence="15"/>
 
     <!-- Vendor menu-->
     <menuitem id="menu_order_flow_management_vendors"

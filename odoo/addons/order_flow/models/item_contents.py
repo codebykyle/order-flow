@@ -1,4 +1,5 @@
-from odoo import models, fields, _
+from odoo import models, fields, api
+from odoo.exceptions import UserError, ValidationError
 
 
 class OrderFlowContainerContents(models.Model):
@@ -8,7 +9,7 @@ class OrderFlowContainerContents(models.Model):
 
     name = fields.Char(
         string='Name',
-        related='child_item_id.name',
+        compute="_calculate_name",
         store=True,
         readonly=False
     )
@@ -24,3 +25,16 @@ class OrderFlowContainerContents(models.Model):
     )
 
     quantity = fields.Integer(string='Quantity')
+
+    def _calculate_name(self):
+        for record in self:
+            record.name = ' - '.join([
+                record.parent_item_id.name,
+                record.child_item_id.name
+            ])
+
+    @api.constrains('parent_item_id', 'child_item_id')
+    def validate_placement(self):
+        for record in self:
+            if record.parent_item_id.id == record.child_item_id.id:
+                raise ValidationError("Item cannot be put into itself")

@@ -44,3 +44,4 @@ class OrderFlowOrder(models.Model):
         inverse_name='order_id',
         string='Items'
     )
+

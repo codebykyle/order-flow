@@ -16,8 +16,14 @@
                         </div>
 
                         <group>
+                            <field name="api_endpoint"/>
                             <field name="sheet_api_name"/>
                             <field name="label_api_name"/>
+                            <field name="sticker_x_count"/>
+                            <field name="sticker_y_count"/>
+                            <field name="sticker_count"/>
+                            <field name="last_used_position"/>
+                            <field name="is_default"/>
                         </group>
 
                         <separator string="Attached Items"/>
@@ -41,8 +47,12 @@
             <field name="arch" type="xml">
                 <tree string="Content" sample="1">
                     <field name="name"/>
+                    <field name="api_endpoint"/>
                     <field name="sheet_api_name"/>
                     <field name="label_api_name"/>
+                    <field name="sticker_count"/>
+                    <field name="last_used_position"/>
+                    <field name="is_default"/>
                 </tree>
             </field>
         </record>

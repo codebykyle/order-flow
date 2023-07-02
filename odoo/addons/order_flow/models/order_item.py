@@ -32,7 +32,7 @@ class OrderFlowOrderItem(models.Model):
         string='Item'
     )
 
-    quantity = fields.Float(string='Quantity', default=1)
+    quantity = fields.Integer(string='Quantity', default=1)
 
     amount_subtotal = fields.Float(string='Sub-Total', default=0)
     amount_shipping = fields.Float(string='Shipping', default=0)
@@ -42,3 +42,14 @@ class OrderFlowOrderItem(models.Model):
     amount_final_total = fields.Float(string='Total', default=0)
 
     integration_code = fields.Char(string="Integration Code")
+
+    per_item_cost = fields.Float(
+        string="Per Item Cost",
+        compute="_compute_per_item_cost",
+        store=True
+    )
+
+    @api.depends('amount_subtotal', 'quantity')
+    def _compute_per_item_cost(self):
+        for record in self:
+            record.per_item_cost = record.amount_subtotal / record.quantity

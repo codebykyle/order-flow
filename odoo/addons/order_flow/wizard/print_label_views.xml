@@ -1,15 +1,14 @@
 <?xml version="1.0"?>
 <odoo>
-    <record id="order_flow_label_request_bulk_form" model="ir.ui.view">
-        <field name="name">order_flow.label_request.bulk_create.form</field>
-        <field name="model">order_flow.label_request.bulk_create</field>
+    <record id="order_flow_label_request_print_form" model="ir.ui.view">
+        <field name="name">order_flow.label_request.print_label.form</field>
+        <field name="model">order_flow.label_request.print_label</field>
         <field name="arch" type="xml">
             <form string="Make Label">
                 <sheet>
                     <group>
-                        <field name="item_id"/>
-                        <field name="quantity"/>
                         <field name="label_type_id"/>
+                        <field name="new_sheet"/>
                     </group>
                     <footer>
                         <button string='Create Labels'
@@ -18,9 +17,9 @@
                                 class="btn-primary"
                                 data-hotkey="q"/>
 
-                        <button string="Cancel"
+                        <button string="Close"
                                 class="btn-secondary"
-                                special="cancel"
+                                special="save"
                                 data-hotkey="z"/>
                     </footer>
                 </sheet>
@@ -29,12 +28,12 @@
     </record>
 
 
-    <record id="order_flow_label_request_bulk_action" model="ir.actions.act_window">
-        <field name="name">Queue Labels</field>
+    <record id="order_flow_label_request_print_action" model="ir.actions.act_window">
+        <field name="name">Print Label Sheet</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">order_flow.label_request.bulk_create</field>
+        <field name="res_model">order_flow.label_request.print_label</field>
         <field name="view_mode">form</field>
-        <field name="view_id" ref="order_flow_label_request_bulk_form"/>
+        <field name="view_id" ref="order_flow_label_request_print_form"/>
         <field name="target">new</field>
     </record>
 </odoo>

@@ -17,12 +17,14 @@
 
     <record id="order_flow_label_request_tree" model="ir.ui.view">
         <field name="name">order_flow.label_request.tree</field>
+
         <field name="model">order_flow.label_request</field>
         <field name="arch" type="xml">
-            <tree string="Content" sample="1" expand="2">
-                <field name="item_image"  widget='image'/>
-                <field name="item_id"/>
-                <field name="item_barcode" />
+            <tree string="Content" sample="1" expand="2" js_class="print_label_button">
+                <field name="item_image" widget='image'/>
+                <field name="sticker_name"/>
+                <field name="sticker_position"/>
+                <field name="item_barcode"/>
                 <field name="label_type_id"/>
                 <field name="status"/>
             </tree>
@@ -34,6 +36,8 @@
         <field name="model">order_flow.label_request</field>
         <field name="arch" type="xml">
             <search string="Accounts">
+                <field name="item_barcode" />
+
                 <group expand="1" string="Group By">
                     <filter string="Account Type"
                             name="group_status"
@@ -49,11 +53,10 @@
     <record id="order_flow_label_request_list_report" model="ir.actions.act_window">
         <field name="name">Labeling</field>
         <field name="res_model">order_flow.label_request</field>
-        <field name="view_mode">tree</field>
+        <field name="view_mode">tree,form</field>
         <field name="context">
             {
                 'search_default_group_status': 1,
-                'search_default_group_label': 1
             }
         </field>
         <field name="search_view_id" ref="order_flow_label_request_search"/>

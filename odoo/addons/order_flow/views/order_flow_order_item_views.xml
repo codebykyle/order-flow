@@ -28,6 +28,11 @@
                                 <separator string="Adjustment Amount"/>
                                 <field name="quantity"/>
 
+                                <field name="per_item_cost"
+                                       widget='monetary'
+                                       options="{'currency_field': 'currency_id'}"/>
+
+
                                 <separator string="Transaction Details"/>
 
                                 <field name="amount_subtotal"
@@ -78,11 +83,9 @@
                            widget='monetary'
                            options="{'currency_field': 'currency_id'}"/>
 
-                    <field name="amount_shipping"
-                           widget='monetary'
-                           options="{'currency_field': 'currency_id'}"/>
-
                     <field name="quantity"/>
+
+                    <field name="per_item_cost"/>
                 </tree>
             </field>
         </record>

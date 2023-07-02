@@ -86,6 +86,16 @@
             </field>
         </record>
 
+        <record id="order_flow_item_adjustment_create_action" model="ir.actions.act_window">
+            <field name="name">Create Adjustment</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">order_flow.item_adjustment</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_order_flow_item_adjustment_form"/>
+            <field name="target">new</field>
+        </record>
+
+
         <record id="order_flow_item_adjustment_action" model="ir.actions.act_window">
             <field name="name">Item Adjustment</field>
             <field name="res_model">order_flow.item_adjustment</field>

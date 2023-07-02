@@ -45,7 +45,7 @@ class OrderFlowOrderItemAdjustment(models.Model):
         default=lambda *a: time.strftime('%Y-%m-%d %H:%M:%S')
     )
 
-    quantity = fields.Float(string='Quantity', default=1)
+    quantity = fields.Integer(string='Quantity')
 
     amount_subtotal = fields.Float(string='Sub-Total', default=0)
     amount_shipping = fields.Float(string='Shipping', default=0)
@@ -55,4 +55,3 @@ class OrderFlowOrderItemAdjustment(models.Model):
     amount_final_total = fields.Float(string='Total', default=0)
 
     integration_code = fields.Char(string="Integration Code")
-
