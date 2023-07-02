@@ -4,6 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    restart: "unless-stopped"
     depends_on:
       - mydb
       - label_generator
@@ -20,10 +21,12 @@ services:
       - PASSWORD=myodoo
   label_generator:
     image: codebynetwork/label-generator
+    restart: "unless-stopped"
     ports:
       - "3333:3333"
   mydb:
     image: postgres:15
+    restart: "unless-stopped"
     volumes:
       - cbk-db-data:/var/lib/postgresql/data/pgdata
     environment:
