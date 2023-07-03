@@ -9,7 +9,9 @@ class OrderFlowOrderItemAdjustment(models.Model):
 
     name = fields.Char(
         string='Name',
-        required=True
+        required=True,
+        compute="_compute_name",
+        store=True
     )
 
     adjustment_type = fields.Selection([
@@ -56,3 +58,9 @@ class OrderFlowOrderItemAdjustment(models.Model):
     amount_final_total = fields.Float(string='Total', default=0)
 
     integration_code = fields.Char(string="Integration Code")
+
+    @api.depends('adjustment_type')
+    @api.onchange('adjustment_type')
+    def _compute_name(self):
+        for record in self:
+            record.name = str(record.adjustment_type)
