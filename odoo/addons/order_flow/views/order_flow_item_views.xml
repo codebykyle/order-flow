@@ -291,7 +291,7 @@
                                                     title="Add item to this container"
                                                     type="action"
                                                     context="{
-                                                        'default_parent_item_id': active_id,
+                                                        'default_item_id': active_id,
                                                         'default_quantity': count_remaining_inventory
                                                     }"/>
                                         </div>

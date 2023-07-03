@@ -30,7 +30,8 @@ class OrderFlowOrderItemAdjustment(models.Model):
 
     item_id = fields.Many2one(
         'order_flow.item',
-        string='Item'
+        string='Item',
+        required=True
     )
 
     currency_id = fields.Many2one(
