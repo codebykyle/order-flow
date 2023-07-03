@@ -64,3 +64,4 @@ class OrderFlowOrderItemAdjustment(models.Model):
     def _compute_name(self):
         for record in self:
             record.name = str(record.adjustment_type)
+

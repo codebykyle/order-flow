@@ -218,9 +218,7 @@
             <field name="name">order_flow.item.kanban</field>
             <field name="model">order_flow.item</field>
             <field name="arch" type="xml">
-                <kanban class="o_kanban_mobile"
-                        create="false"
-                        group_create="false">
+                <kanban class="o_kanban_mobile">
 
                     <field name="count_remaining_inventory"/>
                     <field name="label_type_id"/>

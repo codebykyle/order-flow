@@ -1,4 +1,5 @@
 import logging
+import os
 
 from odoo import models, fields, api
 
@@ -13,6 +14,11 @@ class OrderFlowItem(models.Model):
     _inherit = [
         'image.mixin'
     ]
+
+    @api.model
+    def _get_random_token(self):
+        return str(int.from_bytes(os.urandom(4), 'little'))
+
 
     name = fields.Char(required=True)
     label_name = fields.Char(string="Label Name")
@@ -43,7 +49,7 @@ class OrderFlowItem(models.Model):
     weight = fields.Float(string='Weight in grams')
 
     integration_code = fields.Char(string="Integration Code")
-    barcode = fields.Char(help="Use a barcode to identify this order")
+    barcode = fields.Char(help="Use a barcode to identify this order", default=_get_random_token)
 
     shipping_method_id = fields.Many2one(
         "order_flow.shipping_method",
@@ -133,6 +139,10 @@ class OrderFlowItem(models.Model):
         compute="_compute_pending_labels",
         store=True
     )
+
+    _sql_constraints = [
+        ('barcode_event_uniq', 'unique(barcode)', "Barcode should be unique")
+    ]
 
     def click_pending_labels(self):
         pass
