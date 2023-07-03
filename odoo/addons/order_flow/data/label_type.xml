@@ -6,6 +6,8 @@
             <field name="api_endpoint">http://label_generator:3333/</field>
             <field name="sheet_api_name">a4_4x10</field>
             <field name="label_api_name">inventory</field>
+            <field name="sticker_x_count">4</field>
+            <field name="sticker_y_count">10</field>
             <field name="is_default">1</field>
         </record>
     </data>
