@@ -48,7 +48,7 @@
                                 title="Add item to this container"
                                 type="action"
                                 context="{
-                                    'default_parent_item_id': active_id,
+                                    'default_item_id': active_id,
                                     'default_quantity': count_remaining_inventory
                                 }"/>
                     </header>
@@ -169,7 +169,7 @@
                         <separator string="Adjustments"/>
                         <field name="adjustment_ids"
                                context="{
-                                    'default_parent_item_id': active_id,
+                                    'default_item_id': active_id,
                                     'default_quantity': count_remaining_inventory,
                                     'form_view_ref': 'order_flow.view_order_flow_item_adjustment_form'
                                 }"/>
