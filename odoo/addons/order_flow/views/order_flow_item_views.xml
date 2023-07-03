@@ -256,7 +256,6 @@
                                                     title="Queue a label to be printed"
                                                     type="action"
                                                     context="{
-                                                        'redirect': 'order_flow.order_flow_item_action',
                                                         'default_item_id': active_id,
                                                         'item_label_type_id': label_type_id,
                                                     }"/>
