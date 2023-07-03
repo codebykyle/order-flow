@@ -185,6 +185,7 @@
             <field name="arch" type="xml">
                 <search string="Items">
                     <field name="barcode"/>
+                    <field name="name"/>
                     <separator/>
                     <filter name="remaining_items_filter"
                             domain="[('count_remaining_inventory', '>', 0)]"
