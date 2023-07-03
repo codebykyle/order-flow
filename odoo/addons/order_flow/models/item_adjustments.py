@@ -11,7 +11,8 @@ class OrderFlowOrderItemAdjustment(models.Model):
         string='Name',
         required=True,
         compute="_compute_name",
-        store=True
+        store=True,
+        readonly=False
     )
 
     adjustment_type = fields.Selection([
