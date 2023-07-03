@@ -259,7 +259,6 @@
                                                         'redirect': 'order_flow.order_flow_item_action',
                                                         'default_item_id': active_id,
                                                         'item_label_type_id': label_type_id,
-                                                        'default_quantity': count_remaining_inventory
                                                     }"/>
                                         </div>
                                         <div>
