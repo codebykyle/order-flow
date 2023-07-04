@@ -9,6 +9,10 @@ class OrderFlowOrder(models.Model):
     _inherit = [
     ]
 
+    @api.model
+    def _get_random_token(self):
+        return str(int.from_bytes(os.urandom(4), 'little'))
+
     name = fields.Char(required=True)
 
     vendor_id = fields.Many2one(
@@ -37,11 +41,10 @@ class OrderFlowOrder(models.Model):
     amount_final_total = fields.Float(string='Total')
 
     integration_code = fields.Char(string="Integration Code")
-    barcode = fields.Char(help="Use a barcode to identify this order")
+    barcode = fields.Char(help="Use a barcode to identify this order", default=_get_random_token)
 
     order_items = fields.One2many(
         comodel_name='order_flow.order_item',
         inverse_name='order_id',
         string='Items'
     )
-
