@@ -10,33 +10,33 @@
     <menuitem id="menu_order_flow_inventory"
               name="Inventory"
               parent="order_flow_root"
-              action="order_flow_item_action"
               sequence="1"/>
 
+    <menuitem id="menu_order_flow_remaining_items"
+              name="Remaining Items"
+              parent="menu_order_flow_inventory"
+              action="order_flow_item_remaining_items"
+              sequence="1"/>
+
+    <menuitem id="menu_order_flow_boxes"
+              name="Boxes"
+              parent="menu_order_flow_inventory"
+              action="order_flow_item_boxes"
+              sequence="2"/>
+
+    <menuitem id="menu_order_flow_inventory_all_items"
+              name="All Items"
+              parent="menu_order_flow_inventory"
+              action="order_flow_item_action"
+              sequence="3"/>
+
+    <!-- Moving -->
     <menuitem id="menu_order_flow_moving"
               name="Moving"
               parent="order_flow_root"
               sequence="2"/>
 
-    <menuitem id="menu_order_flow_management"
-              name="Orders"
-              parent="order_flow_root"
-              sequence="3"/>
-
-    <menuitem id="menu_order_flow_settings"
-              name="Settings"
-              parent="order_flow_root"
-              sequence="50"/>
-
-    <!--Supplier menu-->
-    <menuitem id="menu_order_flow_management_orders"
-              name="Orders"
-              parent="menu_order_flow_management"
-              action="order_flow_order_action"
-              sequence="10"/>
-
     <!--Moving menu-->
-<!--    -->
     <menuitem id="menu_initial_sort"
               name="Initial Sort"
               parent="menu_order_flow_moving"
@@ -50,15 +50,18 @@
               action="order_flow_label_request_list_report"
               sequence="15"/>
 
-    <!-- Vendor menu-->
-    <menuitem id="menu_order_flow_management_vendors"
-              name="Vendors"
+    <!-- Orders -->
+    <menuitem id="menu_order_flow_management"
+              name="Orders"
               parent="order_flow_root"
-              action="order_flow_vendors_action"
-              sequence="20"/>
+              sequence="3"/>
 
+    <!-- Settings -->
+    <menuitem id="menu_order_flow_settings"
+              name="Settings"
+              parent="order_flow_root"
+              sequence="50"/>
 
-    <!--Settings menu-->
     <menuitem id="menu_order_flow_settings_label_types"
               name="Label Types"
               parent="menu_order_flow_settings"
@@ -69,5 +72,19 @@
               name="Shipping Methods"
               parent="menu_order_flow_settings"
               action="order_flow_shipping_method_action"
+              sequence="20"/>
+
+    <!--Order menu-->
+    <menuitem id="menu_order_flow_management_orders"
+              name="Orders"
+              parent="menu_order_flow_management"
+              action="order_flow_order_action"
+              sequence="10"/>
+
+    <!-- Vendor menu-->
+    <menuitem id="menu_order_flow_management_vendors"
+              name="Vendors"
+              parent="order_flow_root"
+              action="order_flow_vendors_action"
               sequence="20"/>
 </odoo>

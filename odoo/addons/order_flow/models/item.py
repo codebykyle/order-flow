@@ -9,7 +9,7 @@ _logger = logging.getLogger(__name__)
 class OrderFlowItem(models.Model):
     _name = 'order_flow.item'
     _description = 'Item'
-    _order = 'id'
+    _order = 'create_date DESC, id'
 
     _inherit = [
         'image.mixin'

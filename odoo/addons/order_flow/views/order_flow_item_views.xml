@@ -339,7 +339,23 @@
             <field name="view_mode">tree,form,kanban</field>
             <field name="view_id" ref="order_flow_item_tree"/>
             <field name="search_view_id" ref="order_flow_label_item_search"/>
+            <field name="domain">
+                [('count_remaining_inventory', '>', 0)]
+            </field>
         </record>
+
+        <record id="order_flow_item_boxes" model="ir.actions.act_window">
+            <field name="name">Boxes</field>
+            <field name="res_model">order_flow.item</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="view_id" ref="order_flow_item_tree"/>
+            <field name="search_view_id" ref="order_flow_label_item_search"/>
+            <field name="domain">
+                [('item_type', '=', 'box')]
+            </field>
+        </record>
+
+
 
         <record id="order_flow_initial_sort" model="ir.actions.act_window">
             <field name="name">Initial Sort</field>
