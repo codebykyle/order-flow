@@ -14,6 +14,16 @@ class OrderFlowContainerContents(models.Model):
         readonly=False
     )
 
+    parent_image = fields.Image(
+        related='parent_item_id.image_1920',
+        string="Location Photo"
+    )
+
+    child_image = fields.Image(
+        related='child_item_id.image_1920',
+        string="Item Photo"
+    )
+
     parent_item_id = fields.Many2one(
         'order_flow.item',
         string='Location'

@@ -141,7 +141,8 @@
                                context="{
                                     'default_parent_item_id': active_id,
                                     'default_quantity': count_remaining_inventory,
-                                    'form_view_ref': 'order_flow.view_order_flow_item_contents_form'
+                                    'form_view_ref': 'order_flow.view_order_flow_item_contents_form',
+                                    'tree_view_ref': 'order_flow.order_flow_item_contents_sub_items'
                                 }"/>
 
 
@@ -151,7 +152,8 @@
                                context="{
                                     'default_child_item_id': active_id,
                                     'default_quantity': count_remaining_inventory,
-                                    'form_view_ref': 'order_flow.view_order_flow_item_contents_form'
+                                    'form_view_ref': 'order_flow.view_order_flow_item_contents_form',
+                                    'tree_view_ref': 'order_flow.order_flow_item_contents_containers'
                                 }">
                             <tree>
                                 <field name="parent_item_id"/>

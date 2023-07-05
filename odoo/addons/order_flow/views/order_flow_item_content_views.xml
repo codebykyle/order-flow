@@ -58,7 +58,31 @@
             </field>
         </record>
 
+        <record id="order_flow_item_contents_sub_items" model="ir.ui.view">
+            <field name="name">order_flow.item_contents.tree</field>
+            <field name="model">order_flow.item_contents</field>
+            <field name="arch" type="xml">
+                <tree string="Content" sample="1">
+                    <field name="child_image" widget="image"/>
+                    <field name="name"/>
+                    <field name="child_item_id"/>
+                    <field name="quantity"/>
+                </tree>
+            </field>
+        </record>
 
+        <record id="order_flow_item_contents_containers" model="ir.ui.view">
+            <field name="name">order_flow.item_contents.tree</field>
+            <field name="model">order_flow.item_contents</field>
+            <field name="arch" type="xml">
+                <tree string="Content" sample="1">
+                    <field name="parent_image" widget="image"/>
+                    <field name="name"/>
+                    <field name="parent_item_id"/>
+                    <field name="quantity"/>
+                </tree>
+            </field>
+        </record>
 
         <record id="order_flow_order_item_action_create_content" model="ir.actions.act_window">
             <field name="name">Add Content</field>
