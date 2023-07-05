@@ -34,6 +34,16 @@ class OrderFlowContainerContents(models.Model):
         string='Item'
     )
 
+    parent_vietnamese_name = fields.Char(
+        related="parent_item_id.name_vietnamese",
+        string='VN (Container)'
+    )
+
+    child_vietnamese_name = fields.Char(
+        related="child_item_id.name_vietnamese",
+        string='VN Name (Item)'
+    )
+
     quantity = fields.Integer(string='Quantity')
 
     def _calculate_name(self):
