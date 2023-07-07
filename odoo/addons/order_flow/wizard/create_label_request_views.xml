@@ -9,6 +9,7 @@
                     <group>
                         <field name="item_id"/>
                         <field name="quantity"/>
+                        <field name="record_set" />
                         <field name="label_type_id"/>
                     </group>
                     <footer>
